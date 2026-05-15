@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Colégio Bom Jesus - 8º Ano</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:
+    radial-gradient(circle at top right, #d68fff 0%, transparent 30%),
+    radial-gradient(circle at bottom right, #3b82f6 0%, transparent 25%),
+    linear-gradient(90deg,#07161d 0%, #08304b 30%, #5963a6 100%);
+    min-height:100vh;
+    color:white;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 40px;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:white;
+    overflow:hidden;
+    border:4px solid white;
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+header h1{
+    font-size:52px;
+}
+
+
+.menu{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+.card-link{
+    text-decoration:none;
+    color:white;
+}
+
+.card{
+    width:220px;
+    text-align:center;
+    transition:0.4s;
+    cursor:pointer;
+    animation:flutuar 3s ease-in-out infinite;
+}
+
+.card:hover{
+    transform:translateY(-15px) scale(1.08);
+
+    filter:drop-shadow(0 0 20px rgba(255,255,255,0.5));
+}
+
+.circle{
+    width:180px;
+    height:180px;
+    margin:auto;
+    border-radius:50%;
+    background:#dfe7ef;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border:6px solid rgba(255,255,255,0.15);
+}
+
+.circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card h2{
+    margin-top:18px;
+    font-size:18px;
+    font-style:italic;
+}
+
+.blog{
+    margin-top:80px;
+    padding:40px;
+}
+
+.blog-title{
+    font-size:42px;
+    margin-bottom:30px;
+}
+
+.posts{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.post{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(10px);
+    border-radius:25px;
+    padding:25px;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.post h3{
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+.post p{
+    line-height:1.6;
+    color:#ececec;
+}
+
+.data{
+    margin-top:15px;
+    font-size:14px;
+    opacity:0.7;
+}
+
+footer{
+    margin-top:70px;
+    padding:30px;
+    text-align:center;
+    font-size:28px;
+    font-style:italic;
+    text-decoration:underline;
+}
+
+@media(max-width:900px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+    header h1{
+        font-size:38px;
+    }
+
+    .menu{
+        gap:30px;
+    }
+
+    .circle{
+        width:150px;
+        height:150px;
+    }
+
+}
+
+@keyframes flutuar{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* LOADING SCREEN */
+
+.loader{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100vh;
+
+    background:#07161d;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+    animation:sumir 3s forwards;
+}
+
+.loader-content{
+    text-align:center;
+    color:white;
+}
+
+.loader-logo{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    margin-bottom:20px;
+
+    animation:girar 3s linear infinite;
+}
+
+.loading-bar{
+    width:300px;
+    height:10px;
+
+    background:rgba(255,255,255,0.1);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-top:20px;
+}
+
+.loading-fill{
+    width:0%;
+    height:100%;
+
+    background:linear-gradient(90deg,#8b5cf6,#3b82f6);
+
+    animation:carregar 2.5s forwards;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes carregar{
+
+    from{
+        width:0%;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+@keyframes girar{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+@keyframes sumir{
+
+    0%{
+        opacity:1;
+        visibility:visible;
+    }
+
+    90%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        visibility:hidden;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+    <div class="loader">
+
+    <div class="loader-content">
+
+        <img src="logo.jpg" class="loader-logo">
+
+        <h1>Portal 8º Ano</h1>
+
+        <p>Inicializando banco de dados do Infantil 8...</p>
+
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<header>
+
+    <div class="logo-area">
+        <div class="logo">
+            <img src="logo.jpg">
+        </div>
+
+        <h1>Colégio Bom Jesus</h1>
+    </div>
+
+    
+</header>
+
+<section class="menu">
+
+    <a href="ia.html" class="card-link">
+        <div class="card">
+            <div class="circle">
+                <img src="ia.png">
+            </div>
+            <h2>IA 8º ANO</h2>
+        </div>
+    </a>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4aacH16D64sZP_6g4POgWOThvqHDq5Al2gquu5MzmtXj0ZA/viewform" target="_blank" class="card-link">
+        <div class="card">
+            <div class="circle">
+                <img src="anonimo.jpg">
+            </div>
+            <h2>PEDIDO ANÔNIMO À AUTORIDADE</h2>
+        </div>
+    </a>
+
+    <a href="resumos.html" class="card-link">
+        <div class="card">
+            <div class="circle">
+                <img src="resumo.webp">
+            </div>
+            <h2>RESUMO DAS MATÉRIAS</h2>
+        </div>
+    </a>
+
+    <a href="licoes.html" class="card-link">
+        <div class="card">
+            <div class="circle">
+                <img src="licao.png">
+            </div>
+            <h2>LIÇÕES DE CASA</h2>
+        </div>
+    </a>
+
+</section>
+
+<section class="blog">
+
+    <h2 class="blog-title">📚 Blog da Semana</h2>
+
+    <div class="posts">
+
+        <div class="post">
+            <h3>Evento Escolar: Festa Junina</h3>
+            <p>Teremos nossa festa junina, que acontecerá e no dia 13/06 ás 10:00hrs.
+Será um dia de muita diversão, com comidas típicas, brincadeiras e muita alegria... </p>
+            <div class="data">Postado em: 14/05/2026</div>
+        </div>
+
+        <div class="post">
+            <h3>Português</h3>
+            <p>Leia livros! </p>
+            <div class="data">Postado em: 15/05/2026</div>
+        </div>
+
+        <div class="post">
+            <h3>Matemática</h3>
+            <p>Leve o livro 3 para a sua finalização e o livro 4 para sua inicialização na segunda-feira. Tragam também a régua para as atividades.</p>
+            <div class="data">Postado em: 15/05/2026</div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    8º Ano conectado além da sala de aula! 🚀
+</footer>
+
+</body>
+</html>

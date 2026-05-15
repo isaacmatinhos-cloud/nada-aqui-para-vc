@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA do 8º Ano</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:
+    radial-gradient(circle at top right, #d68fff 0%, transparent 30%),
+    radial-gradient(circle at bottom right, #3b82f6 0%, transparent 25%),
+    linear-gradient(90deg,#07161d 0%, #08304b 30%, #5963a6 100%);
+    min-height:100vh;
+    color:white;
+    display:flex;
+    flex-direction:column;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 30px;
+    background:rgba(255,255,255,0.08);
+}
+
+.botao{
+    padding:12px 20px;
+    background:white;
+    color:#07161d;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+#chat{
+    flex:1;
+    padding:20px;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.msg{
+    max-width:75%;
+    padding:15px;
+    border-radius:18px;
+    line-height:1.5;
+    white-space:pre-wrap;
+}
+
+.user{
+    align-self:flex-end;
+    background:#3b82f6;
+}
+
+.ai{
+    align-self:flex-start;
+    background:rgba(255,255,255,0.15);
+}
+
+footer{
+    display:flex;
+    gap:10px;
+    padding:20px;
+}
+
+input{
+    flex:1;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    font-size:16px;
+}
+
+button{
+    padding:15px 25px;
+    border:none;
+    border-radius:15px;
+    background:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🤖 IA do 8º Ano</h1>
+    <a href="javascript:history.back()" class="botao">← Voltar</a>
+</header>
+
+<div id="chat">
+    <div class="msg ai">
+Olá! Sou a IA do 8º ano 😎
+Pergunte qualquer matéria.
+    </div>
+</div>
+
+<footer>
+    <input id="pergunta" placeholder="Digite sua pergunta..." onkeypress="if(event.key==='Enter') enviar()">
+    <button onclick="enviar()">Enviar</button>
+</footer>
+
+<script>
+const API_KEY = "SENHA_DA_IA_AQUI";
+
+function adicionarMensagem(texto, tipo) {
+    const chat = document.getElementById("chat");
+    const div = document.createElement("div");
+    div.className = "msg " + tipo;
+    div.textContent = texto;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+    return div;
+}
+
+async function enviar() {
+    const input = document.getElementById("pergunta");
+    const pergunta = input.value.trim();
+
+    if (!pergunta) return;
+
+    adicionarMensagem(pergunta, "user");
+    input.value = "";
+
+    const loading = adicionarMensagem("Pensando...", "ai");
+
+    try {
+        const resposta = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer " + API_KEY,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                model: "openrouter/auto",
+                messages: [
+                    {
+                        role: "system",
+                        content: "Você é uma IA escolar amigável para alunos do 8º ano."
+                    },
+                    {
+                        role: "user",
+                        content: pergunta
+                    }
+                ]
+            })
+        });
+
+        const data = await resposta.json();
+
+        loading.remove();
+
+        if (data.error) {
+            adicionarMensagem("Erro: " + data.error.message, "ai");
+            return;
+        }
+
+        adicionarMensagem(data.choices[0].message.content, "ai");
+
+    } catch (erro) {
+        loading.remove();
+        adicionarMensagem("Erro: " + erro.message, "ai");
+    }
+}
+</script>
+
+</body>
+</html>
