@@ -11,6 +11,7 @@
 .flags{
     display:flex;
     gap:20px;
+    align-items:center;
 }
 
 .flag{
@@ -49,7 +50,7 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:25px 40px;
+    padding:20px 30px;
 }
 
 .logo-area{
@@ -346,17 +347,6 @@ footer{
 
 </div>
 
-<header>
-
-    <div class="logo-area">
-        <div class="logo">
-            <img src="logo.jpg">
-        </div>
-
-       <h1 id="titulo">Colégio Bom Jesus</h1>
-    </div>
-
-    
 </header>
 
  <div class="flags">
@@ -371,6 +361,19 @@ footer{
         </div>
     </div>
 </header>
+
+
+<header>
+
+    <div class="logo-area">
+        <div class="logo">
+            <img src="logo.jpg">
+        </div>
+
+       <h1 id="titulo">Colégio Bom Jesus</h1>
+    </div>
+
+    
 
 <section class="menu">
 
@@ -406,7 +409,7 @@ footer{
             <div class="circle">
                 <img src="licao.png">
             </div>
-            <h2 id="licoes-text">LIÇÕES DE CASA</h2>
+            <h2 id="licao-text">LIÇÕES DE CASA</h2>
         </div>
     </a>
 
@@ -453,7 +456,7 @@ function mudarIdioma(idioma){
         document.getElementById("ia-text").innerText = "8TH GRADE AI";
         document.getElementById("anonimo-text").innerText = "ANONYMOUS REPORT";
         document.getElementById("resumo-text").innerText = "SUBJECT SUMMARIES";
-        document.getElementById("licao-text").innerText = "HOMEWORK";
+        document.getElementById("licao-text").innerText = "HOME ASSIGNMENTS";
         document.getElementById("blog-title").innerText = "📚 Weekly Homework Blog";
 
         localStorage.setItem("idioma","en");
