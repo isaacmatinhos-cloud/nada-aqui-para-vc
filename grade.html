@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade Semanal - 8º Ano</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:
+    radial-gradient(circle at top right, #d68fff 0%, transparent 30%),
+    radial-gradient(circle at bottom right, #3b82f6 0%, transparent 25%),
+    linear-gradient(90deg,#07161d 0%, #08304b 30%, #5963a6 100%);
+    min-height:100vh;
+    color:white;
+    padding:30px;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+header h1{
+    font-size:42px;
+}
+
+.voltar{
+    background:white;
+    color:#07161d;
+    padding:12px 20px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.info-card{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+    padding:20px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.info-card h3{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.grade{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.dia{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+    border-radius:22px;
+    padding:20px;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.25s;
+}
+
+.dia:hover{
+    transform:translateY(-6px);
+}
+
+.dia h2{
+    margin-bottom:18px;
+    font-size:26px;
+}
+
+.aula{
+    background:rgba(255,255,255,0.08);
+    padding:14px;
+    border-radius:14px;
+    margin-bottom:10px;
+}
+
+.aula strong{
+    display:block;
+    font-size:14px;
+    opacity:0.8;
+    margin-bottom:4px;
+}
+
+.intervalo{
+    background:rgba(255,255,255,0.18);
+    text-align:center;
+    font-weight:bold;
+}
+
+.legenda{
+    margin-top:35px;
+    background:rgba(255,255,255,0.12);
+    padding:20px;
+    border-radius:18px;
+    line-height:1.8;
+}
+
+footer{
+    text-align:center;
+    margin-top:30px;
+    opacity:0.8;
+}
+
+@media(max-width:768px){
+    body{
+        padding:18px;
+    }
+
+    header h1{
+        font-size:30px;
+    }
+
+    .dia h2{
+        font-size:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📅 Grade Semanal</h1>
+    <a href="index.html" class="voltar">← Voltar</a>
+</header>
+
+<section class="info">
+    <div class="info-card">
+        <h3>🕒 Início das aulas</h3>
+        <p>07:00</p>
+    </div>
+
+    <div class="info-card">
+        <h3>☕ Intervalo</h3>
+        <p>09:30 às 10:00</p>
+    </div>
+
+    <div class="info-card">
+        <h3>🏁 Término</h3>
+        <p>12:30</p>
+    </div>
+
+    <div class="info-card">
+        <h3>📚 Duração de cada aula</h3>
+        <p>50 minutos</p>
+    </div>
+</section>
+
+<section class="grade">
+
+    <div class="dia">
+        <h2>Segunda</h2>
+
+        <div class="aula"><strong>07:00 - 07:50</strong>📐 Matemática</div>
+        <div class="aula"><strong>07:50 - 08:40</strong>📐 Matemática</div>
+        <div class="aula"><strong>08:40 - 09:30</strong>📐 Matemática</div>
+
+        <div class="aula intervalo">☕ Intervalo</div>
+
+        <div class="aula"><strong>10:00 - 10:50</strong>📖 Português</div>
+        <div class="aula"><strong>10:50 - 11:40</strong>🗽 Inglês</div>
+        <div class="aula"><strong>11:40 - 12:30</strong>🗽 Inglês</div>
+    </div>
+
+    <div class="dia">
+        <h2>Terça</h2>
+
+        <div class="aula"><strong>07:00 - 07:50</strong>🗽 Inglês</div>
+        <div class="aula"><strong>07:50 - 08:40</strong>🏃 Educação Física</div>
+        <div class="aula"><strong>08:40 - 09:30</strong>📖 Português</div>
+
+        <div class="aula intervalo">☕ Intervalo</div>
+
+        <div class="aula"><strong>10:00 - 10:50</strong>📐 Matemática</div>
+        <div class="aula"><strong>10:50 - 11:40</strong>📐 Matemática</div>
+        <div class="aula"><strong>11:40 - 12:30</strong>📐 Matemática</div>
+    </div>
+
+    <div class="dia">
+        <h2>Quarta</h2>
+
+        <div class="aula"><strong>07:00 - 07:50</strong>🏛 História</div>
+        <div class="aula"><strong>07:50 - 08:40</strong>🏛 História</div>
+        <div class="aula"><strong>08:40 - 09:30</strong>🏛 História</div>
+
+        <div class="aula intervalo">☕ Intervalo</div>
+
+        <div class="aula"><strong>10:00 - 10:50</strong>📖 Português</div>
+        <div class="aula"><strong>10:50 - 11:40</strong>📖 Português</div>
+        <div class="aula"><strong>11:40 - 12:30</strong>📖 Português</div>
+    </div>
+
+    <div class="dia">
+        <h2>Quinta</h2>
+
+        <div class="aula"><strong>07:00 - 07:50</strong>📖 Português</div>
+        <div class="aula"><strong>07:50 - 08:40</strong>📖 Português</div>
+        <div class="aula"><strong>08:40 - 09:30</strong>🌍 Ciências Sociais</div>
+
+        <div class="aula intervalo">☕ Intervalo</div>
+
+        <div class="aula"><strong>10:00 - 10:50</strong>🌎 Geografia</div>
+        <div class="aula"><strong>10:50 - 11:40</strong>🌎 Geografia</div>
+        <div class="aula"><strong>11:40 - 12:30</strong>🌎 Geografia</div>
+    </div>
+
+    <div class="dia">
+        <h2>Sexta</h2>
+
+        <div class="aula"><strong>07:00 - 07:50</strong>🏃 Educação Física</div>
+        <div class="aula"><strong>07:50 - 08:40</strong>🎨 Artes</div>
+        <div class="aula"><strong>08:40 - 09:30</strong>🧪 Ciências</div>
+
+        <div class="aula intervalo">☕ Intervalo</div>
+
+        <div class="aula"><strong>10:00 - 10:50</strong>🧪 Ciências</div>
+        <div class="aula"><strong>10:50 - 11:40</strong>🧪 Ciências</div>
+        <div class="aula"><strong>11:40 - 12:30</strong>🎨 Artes</div>
+    </div>
+
+</section>
+
+<div class="legenda">
+    <strong>Legenda:</strong><br>
+    📐 Matemática • 📖 Português • 🇺🇸 Inglês • 🏃 Educação Física • 🏛 História • 🌍 Ciências Sociais • 🌎 Geografia • 🧪 Ciências • 🎨 Artes
+</div>
+
+<footer>
+    Horários sujeitos a alterações.
+</footer>
+
+</body>
+</html>
